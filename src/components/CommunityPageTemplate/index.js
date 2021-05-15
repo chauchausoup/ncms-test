@@ -5,23 +5,23 @@ import PropTypes from "prop-types";
 
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const ResourcePageTemplate = (props) => {
-  const { resource } = props;
+const CommunityPageTemplate = (props) => {
+  const { community } = props;
 
   const {
     meta_title,
     meta_description,
-    resource_description,
-    resource_yt_link,
-    resource_yt_thumbnail,
+    community_description,
+    community_yt_link,
+    community_yt_thumbnail,
     title,
-  } = resource;
+  } = community;
 
   let reso = {};
   reso.heading = title;
-  reso.description = resource_description;
-  reso.resource_yt_link = resource_yt_link;
-  reso.resource_yt_thumbnail = resource_yt_thumbnail;
+  reso.description = community_description;
+  reso.community_yt_link = community_yt_link;
+  reso.community_yt_thumbnail = community_yt_thumbnail;
 
   return (
     <div>
@@ -39,12 +39,12 @@ const ResourcePageTemplate = (props) => {
         <div>{reso.description}</div>
         <div>
           <a
-            href={reso.resource_yt_link}
+            href={reso.community_yt_link}
             target="_blank"
             rel="noopener noreferrer"
           >
             <GatsbyImage
-              image={getImage(reso.resource_yt_thumbnail)}
+              image={getImage(reso.community_yt_thumbnail)}
               alt={"0chain products"}
             />
           </a>
@@ -53,16 +53,16 @@ const ResourcePageTemplate = (props) => {
     </div>
   );
 };
-ResourcePageTemplate.propTypes = {
+CommunityPageTemplate.propTypes = {
   title: PropTypes.string,
   meta_title: PropTypes.string,
   meta_description: PropTypes.string,
   reso: PropTypes.shape({
     heading: PropTypes.string,
     description: PropTypes.string,
-    resource_yt_link: PropTypes.string,
-    resource_yt_thumbnail: PropTypes.string,
+    community_yt_link: PropTypes.string,
+    community_yt_thumbnail: PropTypes.string,
   }),
 };
 
-export default ResourcePageTemplate;
+export default CommunityPageTemplate;
