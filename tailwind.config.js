@@ -2,6 +2,22 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    screens: {
+      "2xl": { max: "1535px" },
+      // => @media (max-width: 1535px) { ... }
+
+      xl: { max: "1300px" },
+      // => @media (max-width: 1279px) { ... }
+
+      lg: { max: "1023px" },
+      // => @media (max-width: 1023px) { ... }
+
+      md: { max: "768px" },
+      // => @media (max-width: 767px) { ... }
+
+      sm: { max: "639px" },
+      // => @media (max-width: 639px) { ... }
+    },
     extend: {},
     fontFamily: {},
     height: {
@@ -10,6 +26,7 @@ module.exports = {
       "15vh": "15vh",
       "20vh": "20vh",
       "30vh": "30vh",
+      "25vh": "25vh",
       "40vh": "40vh",
       "50vh": "50vh",
       "60vh": "60vh",

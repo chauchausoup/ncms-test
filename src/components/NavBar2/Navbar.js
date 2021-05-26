@@ -5,56 +5,120 @@ import { StaticImage } from "gatsby-plugin-image";
 import {
   ResourcesDropDown,
   ProductsDropDown,
-  // SolutionsDropDown,
   CommunityDropDown,
 } from "./DropDowns";
+import { useState } from "react";
+
+import useWindowSize from "/screenSize.js";
 
 export default function Nanbar() {
+  const { width } = useWindowSize();
+
   return (
     <div>
-      <header>
-        <div className="bg-black flex flex-row justify-between items-center h-1/4">
-          <div className="flex w-3/4 justify-center">
-            <Link to="/">
-              <LogoNab />
-            </Link>
-          </div>
-          <div className="flex flex-row text-white font-mono text-2xl font-light items-center justify-center w-1/2 space-x-6">
-            <div className="hover:text-yellow-500">
-              <ResourcesDropDown />
-            </div>
-
-            <div className="hover:text-yellow-500">
-              <a
-                href="/blog"
-                // target="_blank"
-                // rel="noopener noreferrer"
-                style={{ fontStyle: "none" }}
-              >
-                Blog
-              </a>
-            </div>
-            <div className="hover:text-yellow-500">
-              <ProductsDropDown />
-            </div>
-            {/* <div className="hover:text-yellow-500">
-              <SolutionsDropDown />
-            </div> */}
-            <div className="hover:text-yellow-500">
-              <CommunityDropDown />
-            </div>
-          </div>
-
-          <div className="flex flex-row text-white font-mono text-2xl font-light items-center justify-center w-1/4 space-x-4">
-            <button className="border-4 border-green-500 hover:border-yellow-500 p-2 rounded transform motion-safe:hover:scale-110">
-              Try Betanet
-            </button>
-          </div>
-        </div>
-      </header>
+      <header>{width > 1300 ? <LNav /> : <MNav />}</header>
     </div>
   );
 }
+
+/* width <1300 */
+const MNav = () => {
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const handleToggle = () => {
+    setNavbarOpen(!navbarOpen);
+    console.log(navbarOpen);
+  };
+
+  return (
+    <div
+      className={
+        " bg-gray-900 flex flex-col " + (navbarOpen ? "h-60vh" : "h-10vh ")
+      }
+    >
+      <div className="flex flex-row w-full  ">
+        <div className="flex m-3 ">
+          <Link to="/">
+            <LogoNab />
+          </Link>
+        </div>
+        <div className="flex justify-end place-items-end w-full items-center">
+          <div
+            className="bg-blue-100 cursor-pointer border-2 hover:border-yellow-500 mx-10"
+            onClick={handleToggle}
+          >
+            {"="}
+          </div>
+        </div>
+      </div>
+      <div
+        className={
+          "flex flex-col text-white font-mono text-3xl font-light w-full " +
+          (navbarOpen ? "" : "hidden")
+        }
+      >
+        <div className="hover:text-yellow-500 p-3">
+          <ResourcesDropDown />
+        </div>
+
+        <div className="hover:text-yellow-500 p-3">
+          <a href="/blog" className="text-white">
+            Blog
+          </a>
+        </div>
+        <div className="hover:text-yellow-500 p-3">
+          <ProductsDropDown />
+        </div>
+
+        <div className="hover:text-yellow-500 p-3">
+          <CommunityDropDown />
+        </div>
+
+        <div className="flex flex-row text-white font-mono text-xl font-light p-5 w-1/4 space-x-4">
+          <button className="border-4 border-green-500 hover:border-yellow-500 p-1 rounded-3xl transform motion-safe:hover:scale-110">
+            Try Betanet
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+{
+  /* width > 1300 */
+}
+const LNav = () => (
+  <div className=" bg-gray-900 flex h-10vh ">
+    <div className="flex w-2/4  justify-center">
+      <Link to="/">
+        <LogoNab />
+      </Link>
+    </div>
+    <div className="flex flex-row   text-white font-mono text-xl font-light items-center justify-center w-1/2 p-5">
+      <div className="hover:text-yellow-500 p-3">
+        <ResourcesDropDown />
+      </div>
+
+      <div className="hover:text-yellow-500 p-3">
+        <a href="/blog" className="text-white">
+          Blog
+        </a>
+      </div>
+      <div className="hover:text-yellow-500 p-3">
+        <ProductsDropDown />
+      </div>
+
+      <div className="hover:text-yellow-500 p-3">
+        <CommunityDropDown />
+      </div>
+
+      <div className="flex flex-row text-white font-mono text-xl font-light items-center justify-center w-1/4 space-x-4">
+        <button className="border-4 border-green-500 hover:border-yellow-500 p-1 rounded-3xl transform motion-safe:hover:scale-110">
+          Try Betanet
+        </button>
+      </div>
+    </div>
+  </div>
+);
 
 const LogoNab = () => {
   return (
@@ -63,12 +127,7 @@ const LogoNab = () => {
       quality={90}
       formats={["AUTO", "WEBP", "AVIF"]}
       alt="0chain logo"
-      style={{
-        maxHeight: "60px",
-        width: "250px",
-        margin: "10px",
-        padding: "10px",
-      }}
+      className="m-3"
     />
   );
 };
