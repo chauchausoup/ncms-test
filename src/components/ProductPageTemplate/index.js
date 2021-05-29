@@ -4,8 +4,13 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
+import useWindowSize from "/screenSize.js";
+import { useDeviceDetect } from "/screenSize.js";
 
 const ProductPageTemplate = (props) => {
+  const { width } = useWindowSize();
+  const { isMobile } = useDeviceDetect();
+
   const { product } = props;
 
   const {
@@ -32,32 +37,54 @@ const ProductPageTemplate = (props) => {
       </Helmet>
 
       {/* BANNER */}
-      <div className="bg-gray-900 h-40vh grid grid-cols-1 text-white justify-center items-center">
+      <div className="bg-black h-40vh grid grid-cols-1 text-white justify-center items-center">
         <h1 className=" grid pt-20 text-4xl text-white justify-center items-center">
           {prod.heading}
         </h1>
-        <p className=" grid text-xl justify-center items-center">
-          {meta_description}
-        </p>
+        {width > 1300 || !isMobile ? (
+          <p className=" grid text-xl text-center px-60">{meta_description}</p>
+        ) : (
+          <p className=" grid text-xl text-center p-10">{meta_description}</p>
+        )}
       </div>
       {/* SHORT INTRO  */}
-      <div className="grid grid-cols-12 h-auto">
-        <div className="col-span-9  grid justify-center items-center border rounded m-10 p-20">
-          {prod.description}
+      {width > 1300 ? (
+        <div className="grid grid-cols-12 h-50vh">
+          <div className="col-span-9  grid  text-center justify-center items-center border rounded m-10 p-20">
+            {prod.description}
+          </div>
+          <div className="col-span-3 grid justify-center items-center">
+            <a
+              href={prod.product_yt_link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GatsbyImage
+                image={getImage(prod.product_yt_thumbnail)}
+                alt={"0chain products"}
+              />
+            </a>
+          </div>
         </div>
-        <div className="col-span-3 grid justify-center items-center">
-          <a
-            href={prod.product_yt_link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GatsbyImage
-              image={getImage(prod.product_yt_thumbnail)}
-              alt={"0chain products"}
-            />
-          </a>
+      ) : (
+        <div className="grid grid-cols-1 h-auto">
+          <div className=" grid justify-center items-center border rounded m-5 p-5">
+            {prod.description}
+          </div>
+          <div className="m-5 p-5 grid justify-center items-center">
+            <a
+              href={prod.product_yt_link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GatsbyImage
+                image={getImage(prod.product_yt_thumbnail)}
+                alt={"0chain products"}
+              />
+            </a>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
