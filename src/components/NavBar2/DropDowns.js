@@ -443,14 +443,14 @@ const LCommunity = () => {
           <div className=" grid h-10vh ">
             {item.subItems.map((sItem, sIndex) => (
               <div className=" m-1 justify-self-center items-self-center">
-                <a
-                  // href={sItem.src}
+                {/* <a
+                  // href={""}
                   // target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: "gray" }}
-                >
-                  <div className="">{sItem.sName}</div>
-                </a>
+                > */}
+                <div className="">{sItem.sName}</div>
+                {/* </a> */}
               </div>
             ))}
           </div>
