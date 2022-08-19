@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
-import Offerings from "../Offerings";
-import Testimonials from "../Testimonials";
+// import Offerings from "../Offerings";
+// import Testimonials from "../Testimonials";
 import PropTypes from "prop-types";
 import Carousel from "../Carousel";
 import StatsShow from "../StatsShow";
@@ -13,13 +13,13 @@ import Team from "../Team";
 
 const HomePageTemplate = (props) => {
   const {
-    title,
+    // title,
     heading,
     description,
     offerings,
     meta_title,
     meta_description,
-    testimonials,
+    // testimonials,
     partners_logo_array,
   } = props;
 

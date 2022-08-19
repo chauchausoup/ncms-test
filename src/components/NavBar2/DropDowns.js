@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Menu, Dropdown } from "antd";
+import { Dropdown } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { Link } from "gatsby";
 import useWindowSize from "/screenSize.js";
@@ -13,7 +13,7 @@ import ZStor from "/static/img/0stor/0store/0stor-text-black.svg";
 import ZWallet from "/static/img/0wallet/0wallet_black.svg";
 import ZLake from "/static/img/0Lake/0Lake Logo.svg";
 
-const { SubMenu } = Menu;
+// const { SubMenu } = Menu;
 
 const dropDown = {
   resources: [
@@ -329,12 +329,12 @@ export const ResourcesDropDown = () => {
   );
 };
 
-{
-  /* "https://0chain.net/images/gfx/wallet.svg" */
-}
+// {
+//   /* "https://0chain.net/images/gfx/wallet.svg" */
+// }
 
 const Logo = ({ logoData }) => {
-  return <img src={logoData} width="200px" height="200px" />;
+  return <img src={logoData} width="200px" height="200px" alt="some logo" />;
 };
 
 //PRODUCTSS

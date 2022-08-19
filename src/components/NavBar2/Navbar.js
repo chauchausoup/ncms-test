@@ -91,9 +91,10 @@ const MNav = () => {
   );
 };
 
-{
-  /* width > 1300 */
-}
+// {
+//   /* width > 1300 */
+// }
+
 const LNav = () => (
   <div className=" bg-gray-900 flex h-10vh ">
     <div className="flex w-2/5  justify-center">
