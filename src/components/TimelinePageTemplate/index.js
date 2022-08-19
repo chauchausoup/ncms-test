@@ -103,7 +103,6 @@ TimelinePageTemplate.propTypes = {
 
 export default TimelinePageTemplate;
 
-// eslint-disable-next
 const timelineData = [
   [
     { type: "string", label: "Task ID" },

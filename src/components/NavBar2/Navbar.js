@@ -49,6 +49,7 @@ const MNav = () => {
           <div
             className="bg-blue-100 cursor-pointer border-2 hover:border-yellow-500 mx-10"
             onClick={handleToggle}
+            onKeyDown={handleToggle}
           >
             {"="}
           </div>
