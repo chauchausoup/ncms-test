@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 // import ProgressiveImageContainer from "../ProgressiveImageContainer";
-import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import { Carousel } from "antd";
 // import "./Arrow.css";
-import zchainLooper from "../../assets/videos/0chain_looper.mp4";
+// import zchainLooper from "../../assets/videos/0chain_looper.mp4";
 
 import useWindowSize from "/screenSize.js";
 import { useDeviceDetect } from "/screenSize.js";
@@ -52,7 +52,7 @@ export default Win;
 
 /* Medium Carousel*/
 const CustomMSlide = ({ cData }) => {
-  let imageData = getImage(cData.image);
+  // let imageData = getImage(cData.image);
 
   return (
     <div className="bg-black grid grid-cols-1" style={{ height: "80vh" }}>
@@ -88,7 +88,7 @@ const CustomMSlide = ({ cData }) => {
 
 /* Larger Carousel */
 const CustomLSlide = ({ cData }) => {
-  let imageData = getImage(cData.image);
+  // let imageData = getImage(cData.image);
 
   return (
     <div className="bg-black grid grid-cols-2" style={{ height: "80vh" }}>

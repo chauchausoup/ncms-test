@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import PropTypes from "prop-types";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+// import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Chart from "react-google-charts";
 
 import "./index.css";
@@ -103,6 +103,7 @@ TimelinePageTemplate.propTypes = {
 
 export default TimelinePageTemplate;
 
+/* eslint-disable */
 const timelineData = [
   [
     { type: "string", label: "Task ID" },

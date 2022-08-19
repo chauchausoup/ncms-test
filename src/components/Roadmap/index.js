@@ -91,6 +91,9 @@ const LRoadmap = () => {
                 case "12": {
                   return date.slice(0, 4) + " Q4";
                 }
+                default: {
+                  return date.slice(0, 4) + " Q1";
+                }
               }
             }}
             styles={{
@@ -198,6 +201,9 @@ const MRoadmap = () => {
                 case "11":
                 case "12": {
                   return date.slice(0, 4) + " Q4";
+                }
+                default: {
+                  return date.slice(0, 4) + " Q1";
                 }
               }
             }}
@@ -334,7 +340,11 @@ const InnerTimeline17Q4 = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={ZChainWhitePaper} style={{ height: "30vh" }} />
+            <img
+              src={ZChainWhitePaper}
+              style={{ height: "30vh" }}
+              alt="some paper"
+            />
           </a>
         </div>
       </div>
