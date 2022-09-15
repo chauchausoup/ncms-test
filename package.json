@@ -28,6 +28,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.4.2",
     "@rumess/react-flip-countdown": "^1.2.3",
+    "@types/react-dom": "^18.0.6",
     "antd": "^4.15.5",
     "bulma": "^0.9.1",
     "formik": "^2.2.6",
@@ -75,8 +76,11 @@
     "react-share": "^4.3.1",
     "react-tabs": "^3.2.2",
     "react-visibility-sensor": "^5.1.1",
+    "source-map-loader": "^4.0.0",
     "trim-right": "^1.0.1",
+    "ts-loader": "^9.3.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^5.74.0",
     "yup": "^0.27.0"
   },
   "devDependencies": {
@@ -95,6 +99,7 @@
     "postcss": "^8.2.15",
     "remark-cli": "^8.0.1",
     "remark-preset-lint-recommended": "^4.0.1",
-    "tailwindcss": "^2.1.2"
+    "tailwindcss": "^2.1.2",
+    "webpack-cli": "^4.10.0"
   }
 }
